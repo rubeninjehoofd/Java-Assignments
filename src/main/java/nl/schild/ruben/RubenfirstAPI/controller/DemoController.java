@@ -2,7 +2,6 @@ package nl.schild.ruben.RubenfirstAPI.controller;
 
 import nl.schild.ruben.RubenfirstAPI.model.Car;
 import nl.schild.ruben.RubenfirstAPI.service.CarService;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,12 +16,6 @@ public class DemoController
         this.carService = carService;
     }
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String test()
-    {
-        return "Hello world";
-    }
-
     @GetMapping(value = "/cars")
     public List<Car> getAllCars()
     {
@@ -33,5 +26,11 @@ public class DemoController
     public Car addCar(@RequestBody Car car)
     {
         return carService.addCar(car);
+    }
+
+    @DeleteMapping(value = "/deletecars")
+    public void deleteCars()
+    {
+        carService.deleteCars();
     }
 }
