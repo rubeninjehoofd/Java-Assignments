@@ -94,7 +94,7 @@ public class DemoController
         try
         {
             carService.updateCar(id, car);
-            return ResponseEntity.status(200).body(car);
+            return ResponseEntity.status(201).body(car);
         }
         catch (Exception e)
         {
