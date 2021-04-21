@@ -27,7 +27,7 @@ public class DemoController
         return ResponseEntity.status(200).body(cars);
     }
 
-    //get book by id
+    //get car by id
     @RequestMapping(value = "/car/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getCar(@PathVariable int id)
     {
