@@ -3,6 +3,7 @@ package nl.schild.ruben.RubenfirstAPI.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Car
@@ -14,6 +15,9 @@ public class Car
     private String model;
     private double price;
     private int year;
+
+    @ManyToOne
+    private Garage garage;
 
     public Car() { }
 
