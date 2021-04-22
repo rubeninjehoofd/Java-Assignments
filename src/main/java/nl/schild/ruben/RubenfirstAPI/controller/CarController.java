@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class DemoController
+public class CarController
 {
     CarService carService;
 
-    public DemoController(CarService carService)
+    public CarController(CarService carService)
     {
         this.carService = carService;
     }
@@ -29,7 +29,7 @@ public class DemoController
 
     //get car by id
     @RequestMapping(value = "/car/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> getCar(@PathVariable int id)
+    public ResponseEntity<?> getCar(@PathVariable Long id)
     {
         try
         {
@@ -42,7 +42,7 @@ public class DemoController
         }
     }
 
-    //add a new car
+    //add new car
     @RequestMapping(value = "/addCar", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addCar(@RequestBody Car car)
     {

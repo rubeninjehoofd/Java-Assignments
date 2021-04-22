@@ -1,12 +1,21 @@
 package nl.schild.ruben.RubenfirstAPI.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Car
 {
+    @Id
+    @GeneratedValue
     private long id;
     private String brand;
     private String model;
     private double price;
     private int year;
+
+    public Car() { }
 
     public Car(long id, String brand, String model, double price, int year) {
         this.id = id;

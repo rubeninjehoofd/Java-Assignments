@@ -1,6 +1,7 @@
 package nl.schild.ruben.RubenfirstAPI.service;
 
 import nl.schild.ruben.RubenfirstAPI.model.Car;
+import nl.schild.ruben.RubenfirstAPI.repository.CarRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,29 +13,29 @@ public class CarService
 {
     private List<Car> cars = new ArrayList<Car>();
 
-    public CarService()
+    CarRepository carRepo;
+
+    public CarService(CarRepository carRepo)
     {
-        cars.add(new Car(1, "Ferrari", "F40", 200000, 1988));
-        cars.add(new Car(2, "Tesla", "Model S", 200000, 2017));
-        cars.add(new Car(3, "Tesla", "Model X", 11000000, 2018));
+        this.carRepo = carRepo;
     }
 
     //get all cars
     public List<Car> getAllCars()
     {
-        return cars;
+        return carRepo.findAll();
     }
 
     //get car by id
-    public Car getCarById(int id)
+    public Car getCarById(Long id)
     {
-        return cars.get(id);
+        return carRepo.getOne(id);
     }
 
     //add car
     public void addCar(Car car)
     {
-        cars.add(car);
+        carRepo.save(car);
     }
 
     //delete all cars
