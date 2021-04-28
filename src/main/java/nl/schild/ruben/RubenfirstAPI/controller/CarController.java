@@ -101,4 +101,18 @@ public class CarController
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
+
+//    @GetMapping(value = "/user")
+//    public ResponseEntity<?> getUsers(@RequestBody Car car)
+//    {
+//        try
+//        {
+//            //get the users
+//            return ResponseEntity.status(201).body(car);
+//        }
+//        catch (Exception e)
+//        {
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+//        }
+//    }
 }

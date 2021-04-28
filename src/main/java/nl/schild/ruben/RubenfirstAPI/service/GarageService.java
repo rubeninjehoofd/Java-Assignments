@@ -19,6 +19,7 @@ public class GarageService
         this.carRepository = carRepo;
     }
 
+
     //get all cars from the garage
     public List<Car> getAllCars()
     {
@@ -29,5 +30,17 @@ public class GarageService
     public void addCar(Car car)
     {
         carRepository.save(car);
+    }
+
+    //empty a garage spot
+    public void removeCar(Long id)
+    {
+        carRepository.deleteById(id);
+    }
+
+    //return a car based on the model name
+    public Car findCarByModel(String modelName)
+    {
+        return carRepository.findCarByModel(modelName);
     }
 }
